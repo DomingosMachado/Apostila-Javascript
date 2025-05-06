@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introdução ao JavaScript - Frontend Essencial</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <i class="fab fa-js"></i>
+      <span>JS Essencial</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#introducao">Introdução</a></li>
+      <li><a href="#conceitos">Conceitos</a></li>
+      <li><a href="#pratica">Prática</a></li>
+      <li><a href="#avancado">Avançado</a></li>
+    </ul>
+    <button class="tema-toggle" id="tema-toggle">
+      <i class="fas fa-moon"></i>
+    </button>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Introdução ao JavaScript</h1>
+      <p class="subtitulo">A linguagem que dá vida à web</p>
+      <a href="#playground" class="btn-primary">Experimente agora</a>
+    </div>
+    <div class="badge-container">
+      <div class="badge">
+        <i class="fas fa-code"></i>
+        <span>Frontend Essencial</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="introducao" class="section">
+      <div class="section-header">
+        <i class="fas fa-info-circle"></i>
+        <h2>O que é JavaScript?</h2>
+      </div>
+      <div class="card">
+        <p>JavaScript é uma das principais linguagens de desenvolvimento web. É a linguagem responsável pela <strong>programação e comportamento dinâmico</strong> das páginas.</p>
+        
+        <div class="info-box">
+          <div class="info-header">
+            <i class="fas fa-lightbulb"></i>
+            <h3>Aplicações comuns</h3>
+          </div>
+          <ul class="feature-list">
+            <li><i class="fas fa-image"></i> Manipulação de imagens e animações</li>
+            <li><i class="fas fa-check-circle"></i> Validação de formulários</li>
+            <li><i class="fas fa-exchange-alt"></i> Mudanças dinâmicas de conteúdo</li>
+            <li><i class="fas fa-server"></i> Comunicação com servidores (APIs)</li>
+            <li><i class="fas fa-mobile-alt"></i> Desenvolvimento de aplicações web responsivas</li>
+          </ul>
+        </div>
+        
+        <div class="demo-box">
+          <h4>Demonstração:</h4>
+          <p>Clique no botão abaixo para ver JavaScript em ação:</p>
+          <button id="demo-btn" class="btn-secondary">Clique aqui</button>
+          <p id="demo-output" class="output-text"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="conceitos" class="section">
+      <div class="section-header">
+        <i class="fas fa-book"></i>
+        <h2>Conceitos Fundamentais</h2>
+      </div>
+      
+      <div class="tabs">
+        <div class="tab-header">
+          <button class="tab-btn active" data-tab="variaveis">Variáveis</button>
+          <button class="tab-btn" data-tab="funcoes">Funções</button>
+          <button class="tab-btn" data-tab="estruturas">Estruturas</button>
+          <button class="tab-btn" data-tab="objetos">Objetos</button>
+        </div>
+        
+        <div class="tab-content">
+          <div class="tab-pane active" id="variaveis">
+            <h3>Variáveis em JavaScript</h3>
+            <p>Variáveis são espaços na memória que armazenam valores. Em JavaScript, temos três formas de declarar variáveis:</p>
+            
+            <div class="code-comparison">
+              <div class="code-block">
+                <h4>var</h4>
+                <pre><code>var nome = "João";
+// Escopo de função
+// Pode ser redeclarada
+// Hoisting (elevação)</code></pre>
+              </div>
+              
+              <div class="code-block">
+                <h4>let</h4>
+                <pre><code>let idade = 25;
+// Escopo de bloco
+// Não pode ser redeclarada
+// Não sofre hoisting</code></pre>
+              </div>
+              
+              <div class="code-block">
+                <h4>const</h4>
+                <pre><code>const PI = 3.14;
+// Escopo de bloco
+// Não pode ser redeclarada
+// Valor constante</code></pre>
+              </div>
+            </div>
+            
+            <div class="interactive-example">
+              <h4>Experimente:</h4>
+              <div class="example-container">
+                <select id="variable-type">
+                  <option value="var">var</option>
+                  <option value="let">let</option>
+                  <option value="const">const</option>
+                </select>
+                <input type="text" id="variable-name" placeholder="Nome da variável">
+                <input type="text" id="variable-value" placeholder="Valor">
+                <button id="create-variable" class="btn-secondary">Criar</button>
+              </div>
+              <div id="variable-output" class="output-box"></div>
+            </div>
+          </div>
+          
+          <div class="tab-pane" id="funcoes">
+            <h3>Funções em JavaScript</h3>
+            <p>Funções são blocos de código que executam tarefas específicas e podem ser reutilizados.</p>
+            
+            <div class="code-comparison">
+              <div class="code-block">
+                <h4>Função Tradicional</h4>
+                <pre><code>function somar(a, b) {
+  return a + b;
+}
+
+// Chamada
+somar(5, 3); // 8</code></pre>
+              </div>
+              
+              <div class="code-block">
+                <h4>Arrow Function</h4>
+                <pre><code>const somar = (a, b) => {
+  return a + b;
+};
+
+// Versão resumida
+const somar = (a, b) => a + b;</code></pre>
+              </div>
+            </div>
+            
+            <div class="interactive-example">
+              <h4>Calcule uma soma:</h4>
+              <div class="example-container">
+                <input type="number" id="num1" placeholder="Número 1">
+                <input type="number" id="num2" placeholder="Número 2">
+                <button id="calculate-sum" class="btn-secondary">Calcular</button>
+              </div>
+              <div id="sum-output" class="output-box"></div>
+            </div>
+          </div>
+          
+          <div class="tab-pane" id="estruturas">
+            <h3>Estruturas de Controle</h3>
+            <p>JavaScript oferece várias estruturas para controlar o fluxo de execução do código.</p>
+            
+            <div class="code-comparison">
+              <div class="code-block">
+                <h4>Condicionais</h4>
+                <pre><code>if (condicao) {
+  // código se verdadeiro
+} else {
+  // código se falso
+}
+
+// Operador ternário
+const resultado = condicao ? "Sim" : "Não";</code></pre>
+              </div>
+              
+              <div class="code-block">
+                <h4>Loops</h4>
+                <pre><code>// For
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+
+// While
+let i = 0;
+while (i < 5) {
+  console.log(i);
+  i++;
+}</code></pre>
+              </div>
+            </div>
+            
+            <div class="interactive-example">
+              <h4>Verifique se um número é par ou ímpar:</h4>
+              <div class="example-container">
+                <input type="number" id="check-number" placeholder="Digite um número">
+                <button id="check-even-odd" class="btn-secondary">Verificar</button>
+              </div>
+              <div id="even-odd-output" class="output-box"></div>
+            </div>
+          </div>
+          
+          <div class="tab-pane" id="objetos">
+            <h3>Objetos e Arrays</h3>
+            <p>Objetos e arrays são estruturas de dados fundamentais em JavaScript.</p>
+            
+            <div class="code-comparison">
+              <div class="code-block">
+                <h4>Objetos</h4>
+                <pre><code>const pessoa = {
+  nome: "Maria",
+  idade: 30,
+  profissao: "Desenvolvedora",
+  apresentar() {
+    return `Olá, sou ${this.nome}`;
+  }
+};</code></pre>
+              </div>
+              
+              <div class="code-block">
+                <h4>Arrays</h4>
+                <pre><code>const frutas = ["maçã", "banana", "laranja"];
+
+// Métodos úteis
+frutas.push("manga");  // Adiciona ao final
+frutas.pop();          // Remove do final
+frutas.map(f => f.toUpperCase());</code></pre>
+              </div>
+            </div>
+            
+            <div class="info-box">
+              <div class="info-header">
+                <i class="fas fa-star"></i>
+                <h4>Métodos de Array Importantes</h4>
+              </div>
+              <ul class="feature-list compact">
+                <li><code>map()</code> - Cria um novo array transformando cada elemento</li>
+                <li><code>filter()</code> - Cria um novo array com elementos que passam em um teste</li>
+                <li><code>reduce()</code> - Reduz o array a um único valor</li>
+                <li><code>find()</code> - Encontra o primeiro elemento que satisfaz uma condição</li>
+                <li><code>sort()</code> - Ordena os elementos do array</li>
+              </ul>
+            </div>
+            
+            <div class="interactive-example">
+              <h4>Crie um objeto pessoa:</h4>
+              <div class="example-container">
+                <input type="text" id="person-name" placeholder="Nome">
+                <input type="number" id="person-age" placeholder="Idade">
+                <input type="text" id="person-job" placeholder="Profissão">
+                <button id="create-person" class="btn-secondary">Criar Objeto</button>
+              </div>
+              <div id="person-output" class="output-box"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="dom" class="section">
+      <div class="section-header">
+        <i class="fas fa-sitemap"></i>
+        <h2>DOM: Manipulação de Documentos</h2>
+      </div>
+      
+      <div class="card">
+        <p>O <strong>Document Object Model (DOM)</strong> é uma interface de programação para documentos HTML. Ele representa a página como uma árvore de objetos, permitindo que JavaScript interaja com elementos HTML.</p>
+        
+        <div class="dom-visualization">
+          <div class="dom-node" id="dom-document">document
+            <div class="dom-children">
+              <div class="dom-node" id="dom-html">html
+                <div class="dom-children">
+                  <div class="dom-node" id="dom-head">head</div>
+                  <div class="dom-node" id="dom-body">body
+                    <div class="dom-children">
+                      <div class="dom-node" id="dom-div">div
+                        <div class="dom-children">
+                          <div class="dom-node" id="dom-p">p</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="code-comparison">
+          <div class="code-block">
+            <h4>Seleção de Elementos</h4>
+            <pre><code>// Seleciona por ID
+const elemento = document.getElementById("meuId");
+
+// Seleciona por classe
+const elementos = document.getElementsByClassName("minhaClasse");
+
+// Seletores modernos
+const elemento = document.querySelector("#meuId");
+const elementos = document.querySelectorAll(".minhaClasse");</code></pre>
+          </div>
+          
+          <div class="code-block">
+            <h4>Manipulação de Elementos</h4>
+            <pre><code>// Modificar conteúdo
+elemento.innerHTML = "Novo conteúdo";
+elemento.textContent = "Texto simples";
+
+// Modificar atributos
+elemento.setAttribute("src", "imagem.jpg");
+elemento.classList.add("destaque");
+
+// Criar elementos
+const novoElemento = document.createElement("div");</code></pre>
+          </div>
+        </div>
+        
+        <div class="interactive-example">
+          <h4>Experimente o DOM:</h4>
+          <div class="example-container">
+            <div id="dom-playground" class="dom-playground">
+              <p id="dom-target">Este texto pode ser modificado</p>
+            </div>
+            <div class="controls">
+              <button id="change-text" class="btn-secondary">Mudar Texto</button>
+              <button id="change-color" class="btn-secondary">Mudar Cor</button>
+              <button id="add-element" class="btn-secondary">Adicionar Elemento</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pratica" class="section">
+      <div class="section-header">
+        <i class="fas fa-laptop-code"></i>
+        <h2>JavaScript na Prática</h2>
+      </div>
+      
+      <div class="card">
+        <div class="info-box">
+          <div class="info-header">
+            <i class="fas fa-clipboard-list"></i>
+            <h3>Exemplos Práticos</h3>
+          </div>
+          <ul class="feature-list">
+            <li><i class="fas fa-check-circle"></i> Validação de formulários</li>
+            <li><i class="fas fa-sync"></i> Atualização dinâmica de conteúdo</li>
+            <li><i class="fas fa-paint-brush"></i> Animações e efeitos visuais</li>
+            <li><i class="fas fa-calculator"></i> Cálculos e processamento de dados</li>
+          </ul>
+        </div>
+        
+        <div class="example-projects">
+          <div class="project-card">
+            <h4>Validação de Formulário</h4>
+            <div class="example-form">
+              <div class="form-group">
+                <label for="username">Nome de usuário:</label>
+                <input type="text" id="username" class="form-control">
+                <small id="username-error" class="error-message"></small>
+              </div>
+              <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" class="form-control">
+                <small id="email-error" class="error-message"></small>
+              </div>
+              <div class="form-group">
+                <label for="password">Senha:</label>
+                <input type="password" id="password" class="form-control">
+                <small id="password-error" class="error-message"></small>
+              </div>
+              <button id="validate-form" class="btn-primary">Validar</button>
+            </div>
+          </div>
+          
+          <div class="project-card">
+            <h4>Contador com LocalStorage</h4>
+            <div class="counter-example">
+              <div class="counter-display">
+                <span id="counter-value">0</span>
+              </div>
+              <div class="counter-controls">
+                <button id="decrement" class="btn-secondary">-</button>
+                <button id="increment" class="btn-secondary">+</button>
+                <button id="reset" class="btn-secondary">Reset</button>
+              </div>
+              <p class="counter-info">Este contador persiste mesmo após recarregar a página.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="avancado" class="section">
+      <div class="section-header">
+        <i class="fas fa-rocket"></i>
+        <h2>Conceitos Avançados</h2>
+      </div>
+      
+      <div class="accordion">
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <i class="fas fa-history"></i>
+            <h3>Programação Assíncrona</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <p>JavaScript executa código de forma assíncrona, permitindo que operações demoradas não bloqueiem o resto do programa.</p>
+            
+            <div class="code-comparison">
+              <div class="code-block">
+                <h4>Promises</h4>
+                <pre><code>const minhaPromise = new Promise((resolve, reject) => {
+  // Operação assíncrona
+  if (sucesso) {
+    resolve(resultado);
+  } else {
+    reject(erro);
+  }
+});
+
+minhaPromise
+  .then(resultado => console.log(resultado))
+  .catch(erro => console.error(erro));</code></pre>
+              </div>
+              
+              <div class="code-block">
+                <h4>Async/Await</h4>
+                <pre><code>async function buscarDados() {
+  try {
+    const resposta = await fetch('https://api.exemplo.com/dados');
+    const dados = await resposta.json();
+    return dados;
+  } catch (erro) {
+    console.error('Erro:', erro);
+  }
+}</code></pre>
+              </div>
+            </div>
+            
+            <div class="interactive-example">
+              <h4>Experimente:</h4>
+              <button id="async-demo" class="btn-secondary">Buscar Dados</button>
+              <div id="async-output" class="output-box"></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <i class="fas fa-database"></i>
+            <h3>Armazenamento no Navegador</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <p>JavaScript oferece diversas formas de armazenar dados no navegador do usuário.</p>
+            
+            <div class="storage-comparison">
+              <div class="storage-option">
+                <h4>localStorage</h4>
+                <ul>
+                  <li>Persistente até ser explicitamente removido</li>
+                  <li>Armazena strings (usar JSON para objetos)</li>
+                  <li>Limite de ~5MB</li>
+                  <li>Não expira</li>
+                </ul>
+                <pre><code>// Salvar dados
+localStorage.setItem("usuario", "João");
+
+// Recuperar dados
+const usuario = localStorage.getItem("usuario");
+
+// Remover dados
+localStorage.removeItem("usuario");</code></pre>
+              </div>
+              
+              <div class="storage-option">
+                <h4>sessionStorage</h4>
+                <ul>
+                  <li>Mantém dados apenas durante a sessão</li>
+                  <li>Limpo quando o navegador é fechado</li>
+                  <li>Mesma API que localStorage</li>
+                  <li>Útil para dados temporários</li>
+                </ul>
+                <pre><code>// Mesma API que localStorage
+sessionStorage.setItem("tempData", "valor");
+const tempData = sessionStorage.getItem("tempData");</code></pre>
+              </div>
+            </div>
+            
+            <div class="interactive-example">
+              <h4>Salve uma nota:</h4>
+              <div class="example-container">
+                <textarea id="note-text" placeholder="Digite sua nota..."></textarea>
+                <button id="save-note" class="btn-secondary">Salvar</button>
+              </div>
+              <div id="note-output" class="output-box"></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <i class="fas fa-exchange-alt"></i>
+            <h3>Consumo de APIs</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <p>JavaScript permite a comunicação com servidores para buscar ou enviar dados através de APIs.</p>
+            
+            <div class="code-comparison">
+              <div class="code-block">
+                <h4>Fetch API</h4>
+                <pre><code>// GET request
+fetch('https://api.exemplo.com/dados')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Erro:', error));
+
+// POST request
+fetch('https://api.exemplo.com/dados', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({ nome: 'João' })
+})</code></pre>
+              </div>
+              
+              <div class="code-block">
+                <h4>Axios (biblioteca)</h4>
+                <pre><code>// GET request
+axios.get('https://api.exemplo.com/dados')
+  .then(response => console.log(response.data))
+  .catch(error => console.error('Erro:', error));
+
+// POST request
+axios.post('https://api.exemplo.com/dados', {
+  nome: 'João'
+})</code></pre>
+              </div>
+            </div>
+            
+            <div class="interactive-example">
+              <h4>Busque dados de uma API:</h4>
+              <button id="fetch-users" class="btn-secondary">Buscar Usuários</button>
+              <div id="users-output" class="output-box"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="playground" class="section">
+      <div class="section-header">
+        <i class="fas fa-code"></i>
+        <h2>Playground JavaScript</h2>
+      </div>
+      
+      <div class="card">
+        <p>Experimente escrever e executar seu próprio código JavaScript diretamente no navegador!</p>
+        
+        <div class="code-editor">
+          <textarea id="code-input" placeholder="// Escreva seu código JavaScript aqui
+console.log('Olá, mundo!');"></textarea>
+          <button id="run-code" class="btn-primary">Executar <i class="fas fa-play"></i></button>
+          <div id="code-output" class="output-box">
+            <div class="output-header">
+              <span>Console</span>
+              <button id="clear-console" class="btn-small">Limpar</button>
+            </div>
+            <div id="console-output"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="recursos" class="section">
+      <div class="section-header">
+        <i class="fas fa-bookmark"></i>
+        <h2>Recursos Adicionais</h2>
+      </div>
+      
+      <div class="resources-grid">
+        <div class="resource-card">
+          <i class="fas fa-book"></i>
+          <h3>Documentação</h3>
+          <p>MDN Web Docs é a referência completa para JavaScript</p>
+          <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript" target="_blank" class="resource-link">Acessar <i class="fas fa-external-link-alt"></i></a>
+        </div>
+        
+        <div class="resource-card">
+          <i class="fas fa-laptop-code"></i>
+          <h3>Tutoriais Interativos</h3>
+          <p>Aprenda JavaScript na prática com exercícios</p>
+          <a href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/" target="_blank" class="resource-link">Acessar <i class="fas fa-external-link-alt"></i></a>
+        </div>
+        
+        <div class="resource-card">
+          <i class="fas fa-video"></i>
+          <h3>Vídeo Aulas</h3>
+          <p>Cursos em vídeo para aprender JavaScript</p>
+          <a href="https://www.youtube.com/results?search_query=javascript+tutorial+português" target="_blank" class="resource-link">Acessar <i class="fas fa-external-link-alt"></i></a>
+        </div>
+        
+        <div class="resource-card">
+          <i class="fas fa-code-branch"></i>
+          <h3>Projetos</h3>
+          <p>Ideias de projetos para praticar JavaScript</p>
+          <a href="https://github.com/topics/javascript-projects" target="_blank" class="resource-link">Acessar <i class="fas fa-external-link-alt"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <i class="fab fa-js"></i>
+        <span>JavaScript Essencial</span>
+      </div>
+      <div class="footer-links">
+        <a href="#introducao">Introdução</a>
+        <a href="#conceitos">Conceitos</a>
+        <a href="#pratica">Prática</a>
+        <a href="#avancado">Avançado</a>
+        <a href="#playground">Playground</a>
+      </div>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Frontend Essencial - JavaScript</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
